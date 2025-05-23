@@ -1,3 +1,5 @@
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=ozanunal0.vocala)
+
 # Vocala 🎯
 
 **Advanced AI-powered Telegram bot for learning English vocabulary**
