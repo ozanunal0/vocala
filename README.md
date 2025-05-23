@@ -1,3 +1,5 @@
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=ozanunal0.vocala)
+
 # Vocala 🎯
 
 **Advanced AI-powered Telegram bot for learning English vocabulary**
@@ -97,8 +99,8 @@ Vocala is an intelligent vocabulary learning companion that uses Large Language 
 
 ### 1. Clone the Repository
 ```bash
-git clone git@github.com:ozanunal0/Vocala.git
-cd Vocala
+git clone git@github.com:ozanunal0/vocala.git
+cd vocala
 ```
 
 ### 2. Environment Setup
