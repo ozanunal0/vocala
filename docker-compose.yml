@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://vocala:vocala_password@db:5432/vocala_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./app:/app/app
+      - ./alembic:/app/alembic
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - vocala_network
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=vocala
+      - POSTGRES_PASSWORD=vocala_password
+      - POSTGRES_DB=vocala_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - vocala_network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - vocala_network
+
+  celery_worker:
+    build: .
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://vocala:vocala_password@db:5432/vocala_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./app:/app/app
+    command: celery -A app.tasks.celery_app worker --loglevel=info
+    networks:
+      - vocala_network
+
+  celery_beat:
+    build: .
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://vocala:vocala_password@db:5432/vocala_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./app:/app/app
+    command: celery -A app.tasks.celery_app beat --loglevel=info
+    networks:
+      - vocala_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  vocala_network:
+    driver: bridge 
