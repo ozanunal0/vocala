@@ -1,3 +1,5 @@
+![vocala-banner.png](public/vocala-banner.png)
+
 # Vocala 🎯
 
 **Advanced AI-powered Telegram bot for learning English vocabulary**
