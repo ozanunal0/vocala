@@ -1,4 +1,4 @@
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=ozanunal0.vocala)
+![vocala-banner.png](public/vocala-banner.png)
 
 # Vocala 🎯
 
