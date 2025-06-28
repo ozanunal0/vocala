@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ![vocala-banner.png](public/vocala-banner.png)
+=======
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=ozanunal0.vocala)
+>>>>>>> 34c85e6989384857585749484dd793e1cbdf9278
 
 # Vocala 🎯
 
@@ -99,8 +103,8 @@ Vocala is an intelligent vocabulary learning companion that uses Large Language 
 
 ### 1. Clone the Repository
 ```bash
-git clone git@github.com:ozanunal0/Vocala.git
-cd Vocala
+git clone git@github.com:ozanunal0/vocala.git
+cd vocala
 ```
 
 ### 2. Environment Setup
