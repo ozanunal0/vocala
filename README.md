@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ![vocala-banner.png](public/vocala-banner.png)
-=======
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=ozanunal0.vocala)
->>>>>>> 34c85e6989384857585749484dd793e1cbdf9278
 
 # Vocala 🎯
 
